@@ -9,7 +9,6 @@ function Nav() {
     console.log("User logged out sucessfully");
     navigate("/");
   }
-
   return (
     <div>
       <nav className="bg-gray-800">
@@ -27,27 +26,30 @@ function Nav() {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="/home"
+                  <Link to="/home">
+                  <p
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
+                    >
                     Home
-                  </a>
+                  </p>
+                    </Link>
                   {
                     localStorage.getItem('authtoken') === null ?
                       <>
-                        <a
-                          href="/"
-                          className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                          Login
-                        </a>
-                        <a
-                          href="/register"
-                          className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                          Register
-                        </a>
+                        <Link to="/">
+                          <p
+                            className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                          >
+                            Login
+                          </p>
+                        </Link>
+                        <Link to="/register">
+                          <p
+                            className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                          >
+                            Register
+                          </p>
+                        </Link>
                       </>
                       :
                       <p
@@ -147,7 +149,7 @@ function Nav() {
                         </p>
                       </Link>
                     </> :
-                     <>
+                    <>
                       <p
                         onClick={handleLogout}
                         className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"

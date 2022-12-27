@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
@@ -41,7 +42,7 @@ const ChangePassword = () => {
 
     axios(reqOptions).then(
       function (response) {
-        console.log(response.data)
+        toast.success(response.data.message)
         navigate("/home");
       }
     ).catch(

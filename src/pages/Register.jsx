@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-hot-toast';
 const Register = () => {
   const navigate = useNavigate();
   const handleRegister = async (e) => {
@@ -30,13 +31,14 @@ const Register = () => {
         if(response.data.token){
           const auttoken = response.data.token
           localStorage.setItem('authtoken', auttoken);
+          toast(response.data.message)
          return navigate("/home");
         }
-        response.data.sucess ? console.log("User Logged in") : console.log("Wrong credentials")
       }
     ).catch(
       function (error) {
-        console.log('Show error notification!')
+        console.log(error)
+        toast.error('Successfully toasted!')
         return Promise.reject(error)
       }
     )
