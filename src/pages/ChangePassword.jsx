@@ -30,7 +30,7 @@ const ChangePassword = () => {
     }
 
     let bodyContent = JSON.stringify({
-      "password": "bdsmbdsm"
+      "password": password
     });
 
     let reqOptions = {
