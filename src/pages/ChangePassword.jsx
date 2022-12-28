@@ -19,7 +19,7 @@ const ChangePassword = () => {
     e.preventDefault();
     
     if (password !== cpassword) {
-      console.log("passwords not similar");
+      toast.error("passwords not similar");
       return
     }
 
