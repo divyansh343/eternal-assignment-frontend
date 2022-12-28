@@ -29,10 +29,22 @@ const Register = () => {
     axios(reqOptions).then(
       function (response) {
         if(response.data.token){
-          const auttoken = response.data.token
-          localStorage.setItem('authtoken', auttoken);
+          // const auttoken = response.data.token
+          // localStorage.setItem('authtoken', auttoken);
           toast(response.data.message)
-         return navigate("/home");
+          toast.success('Login after user registerd', {
+            style: {
+              border: '1px solid #713200',
+              padding: '16px',
+              color: '#713200',
+            },
+            iconTheme: {
+              primary: '#713200',
+              secondary: '#FFFAEE',
+            },
+          });
+
+         return navigate("/");
         }
       }
     ).catch(

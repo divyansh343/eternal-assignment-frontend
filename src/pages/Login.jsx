@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,7 +11,6 @@ const Login = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('authtoken')
-    console.log(token)
     if (token !== null) {
       navigate("/home")
     }
@@ -39,12 +39,14 @@ const Login = () => {
       function (response) {
         const auttoken = response.data.token
         localStorage.setItem('authtoken', auttoken);
-        console.log(auttoken)
+        toast.success(`User Logged in`)
         navigate("/home");
+        setEmail("")
+        setPass("")
       }
     ).catch(
       function (error) {
-        console.log(error.message)
+        toast.error("Incorrect Password");
       }
     )
   }
