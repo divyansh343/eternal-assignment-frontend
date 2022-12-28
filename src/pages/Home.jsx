@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const token = localStorage.getItem('authtoken')
     if (token === null) {
-      toast.error("you are not authorized",{duration: 800,})
+      // toast.error("you are not authorized",{duration: 800,})
       navigate("/")
       return
     }
